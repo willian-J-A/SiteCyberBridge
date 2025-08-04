@@ -1,0 +1,465 @@
+/* ===== GLOBAL VARIABLES & RESET ===== */
+:root {
+  --primary-dark: #5F7350;
+  --primary-light: rgb(142, 240, 183);
+  --secondary: #2ecc71;
+  --secondary-dark: #27ae60;
+  --text-dark: #39373A;
+  --text-medium: #4a5568;
+  --text-light: #f8f9fa;
+  --white: #ffffff;
+  --gray-border: #5F7350;
+  --dark-bg: #333;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--text-light);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.75rem;
+  transform: translateX(-50%);
+  width: 20%;
+  max-width: 100px;
+  height: 3px;
+  background-color: var(--secondary);
+}
+
+/* ===== HEADER ===== */
+.header {
+  background-color: var(--primary-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.header-logo {
+  max-width: min(12rem, 80vw);
+  height: auto;
+  transition: var(--transition);
+}
+
+.header__nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.header__button {
+  background-color: var(--white);
+  color: var(--text-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.header__button:hover {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+/* ===== HERO ===== */
+.hero {
+  background-color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: min(90vh, 800px);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero__text {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  line-height: 1.6;
+  max-width: 800px;
+  font-weight: 500;
+  color: var(--text-medium);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero__button {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: 1rem clamp(2rem, 6vw, 4rem);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  text-decoration: none;
+  transition: var(--transition);
+  margin-top: 1rem;
+}
+
+.hero__button:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* ===== SERVICES ===== */
+.services {
+  background-color: var(--text-light);
+  padding: 4rem 2rem;
+}
+
+.services__title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--primary-dark);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--white);
+  border: 2px solid var(--gray-border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  color: var(--text-medium);
+  line-height: 1.6;
+}
+/* ===== ABOUT + MISSION SECTION ===== */
+.about-section {
+  width: 95%;
+  margin: 2rem auto;
+  padding: 4rem 2rem;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Cabeçalho */
+.about-header,
+.mission-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Ícones */
+.about-icon,
+.mission-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Títulos */
+.about-title,
+.mission-title {
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  position: relative;
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.about-title::after,
+.mission-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary);
+}
+
+/* Conteúdo */
+.about-content,
+.mission-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Quando entra em scroll */
+.about-content.active,
+.mission-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Textos */
+.about-text-block,
+.mission-text-block {
+  flex: 2;
+}
+
+.about-text,
+.mission-text {
+  color: var(--text-medium);
+  line-height: 1.8;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+/* Ilustrações */
+.about-illustration,
+.mission-illustration {
+  flex: 1;
+  max-width: 400px;
+}
+
+.about-illustration img,
+.mission-illustration img {
+  width: 100%;
+  height: auto;
+  will-change: transform;
+  transition: transform 0.5s ease;
+}
+
+/* Hover nas imagens (efeito parallax leve) */
+.about-illustration img:hover,
+.mission-illustration img:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 768px) {
+  .about-content,
+  .mission-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-illustration,
+  .mission-illustration {
+    display: none; /* Esconde ilustrações no mobile */
+  }
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: var(--dark-bg);
+  color: var(--white);
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem 2rem;
+}
+
+.footer__column {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.footer__title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--secondary);
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer__item {
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.footer__item:hover {
+  opacity: 1;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.footer a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--secondary);
+}
+
+.footer__copyright {
+  text-align: center;
+  background-color: black;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (min-width: 480px) {
+  .header-logo {
+    max-width: 10rem;
+  }
+
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header__nav {
+    width: auto;
+    justify-content: flex-end;
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .footer__column:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero__content {
+    gap: 3rem;
+  }
+
+  .footer__container {
+    padding: 3rem 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__title {
+    font-size: 3.5rem;
+  }
+}
