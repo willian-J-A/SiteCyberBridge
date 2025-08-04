@@ -1,0 +1,730 @@
+/* ===== GLOBAL VARIABLES & RESET ===== */
+:root {
+  --primary-dark: #5F7350;
+  --primary-light: rgb(142, 240, 183);
+  --secondary: #2ecc71;
+  --secondary-dark: #27ae60;
+  --text-dark: #39373A;
+  --text-medium: #4a5568;
+  --text-light: #f8f9fa;
+  --white: #ffffff;
+  --gray-border: #5F7350;
+  --dark-bg: #333;
+  --transition: all 0.3s ease;
+  --logo-section-bg: #4a5568; /* Atualiza a cor do fundo da seção de logos */
+  --logo-hover-filter: grayscale(0%) brightness(1) contrast(1); /* Filtro para logos no quadrado de exposição */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--text-light);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.75rem;
+  transform: translateX(-50%);
+  width: 20%;
+  max-width: 100px;
+  height: 3px;
+  background-color: var(--secondary);
+}
+
+/* ===== HEADER ===== */
+.header {
+  background-color: var(--primary-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+/* Adição de centralização da logo do header */
+
+
+.header-logo {
+  max-width: 100%;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: var(--transition);
+}
+.header__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 70px; /* Reduzido de 100px */
+  padding: 0 2rem;
+}
+
+
+
+.header-logo {
+  max-width: 100%;
+  max-height: 60px; /* Reduzido para acompanhar o novo header */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: var(--transition);
+}
+
+
+.header__nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+
+.header__button {
+  background-color: var(--white);
+  color: var(--text-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.header__button:hover {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+/* ===== HERO ===== */
+.hero {
+  background-color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: min(90vh, 800px);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero__text {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  line-height: 1.6;
+  max-width: 800px;
+  font-weight: 500;
+  color: var(--text-medium);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero__button {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: 1rem clamp(2rem, 6vw, 4rem);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  text-decoration: none;
+  transition: var(--transition);
+  margin-top: 1rem;
+}
+
+.hero__button:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* ===== SERVICES ===== */
+.services {
+  background-color: var(--text-light);
+  padding: 4rem 2rem;
+}
+
+.services__title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--primary-dark);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--white);
+  border: 2px solid var(--gray-border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  color: var(--text-medium);
+  line-height: 1.6;
+}
+/* ===== ABOUT + MISSION SECTION ===== */
+.about-section {
+  width: 95%;
+  margin: 2rem auto;
+  padding: 4rem 2rem;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Cabeçalho */
+.about-header,
+.mission-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Ícones */
+.about-icon,
+.mission-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Títulos */
+.about-title,
+.mission-title {
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  position: relative;
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.about-title::after,
+.mission-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary);
+}
+
+/* Conteúdo */
+.about-content,
+.mission-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Quando entra em scroll */
+.about-content.active,
+.mission-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Textos */
+.about-text-block,
+.mission-text-block {
+  flex: 2;
+}
+
+.about-text,
+.mission-text {
+  color: var(--text-medium);
+  line-height: 1.8;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+/* Ilustrações */
+.about-illustration,
+.mission-illustration {
+  flex: 1;
+  max-width: 400px;
+}
+
+.about-illustration img,
+.mission-illustration img {
+  width: 100%;
+  height: auto;
+  will-change: transform;
+  transition: transform 0.5s ease;
+}
+
+/* Hover nas imagens (efeito parallax leve) */
+.about-illustration img:hover,
+.mission-illustration img:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 768px) {
+  .about-content,
+  .mission-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-illustration,
+  .mission-illustration {
+    display: none; /* Esconde ilustrações no mobile */
+  }
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: var(--dark-bg);
+  color: var(--white);
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem 2rem;
+}
+
+.footer__column {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.footer__title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--secondary);
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer__item {
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.footer__item:hover {
+  opacity: 1;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.footer a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--secondary);
+}
+
+.footer__copyright {
+  text-align: center;
+  background-color: black;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (min-width: 480px) {
+  .header-logo {
+    max-width: 15rem; /* Ajusta a largura para telas maiores */
+    max-height: 150px; /* Garante que o tamanho máximo seja consistente */
+  }
+
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header__nav {
+    width: auto;
+    justify-content: flex-end;
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .footer__column:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero__content {
+    gap: 3rem;
+  }
+
+  .footer__container {
+    padding: 3rem 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__title {
+    font-size: 3.5rem;
+  }
+}
+/* Seção do carrossel */
+.logo-section {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--logo-section-bg); /* Usa a variável para o fundo */
+  padding: 2rem 0;
+}
+
+/* Container do carrossel */
+.logo-carousel {
+  display: flex;
+  background-color: #5F7350;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Estilo das logos */
+.logo-item {
+  width: 160px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%) brightness(0.95) contrast(1.1);
+  opacity: 0.85;
+}
+
+.logo-item:hover,
+.swiper-slide-active .logo-item {
+  transform: scale(1.05);
+  filter: var(--logo-hover-filter); /* Aplica o filtro colorido */
+  opacity: 1;
+}
+
+/* Swiper slide: blur nos slides não ativos */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(4px);
+  opacity: 0.6;
+  transition: filter 0.3s, opacity 0.3s;
+  pointer-events: none;
+}
+
+.swiper-slide-active {
+  filter: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.swiper-slide-next,
+.swiper-slide-prev {
+  filter: blur(4px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Logo principal */
+.main-logo {
+  width: 140px; /* Ajuste conforme necessário */
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.main-logo:hover {
+  transform: scale(1.07);
+}
+
+/* Centraliza verticalmente as setas do Swiper */
+.logo-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Garante que o Swiper ocupe altura suficiente */
+.logo-section .swiper {
+  background: #5F7350; /* Azul escuro */
+  border-radius: 16px; /* Bordas arredondadas */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  width: auto;
+  max-width: 600px; /* Ajuste conforme necessário */
+  padding: 1.5rem 0; /* Espaçamento interno */
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+/* Ajusta as setas para ficarem centralizadas verticalmente */
+.swiper-button-next,
+.swiper-button-prev {
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #5F7350; /* Verde */
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 1.2rem;
+  color: #AFA5A3; /* Azul escuro */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #5F7350; /* Azul escuro */
+  border-color: #fff;
+}
+
+.swiper-button-next:hover:after,
+.swiper-button-prev:hover:after {
+  color: #fff;
+}
+
+/* Opcional: aumenta o z-index das setas para ficarem acima das logos */
+.swiper-button-next,
+.swiper-button-prev {
+  z-index: 2;
+}
+
+/* Aumenta o espaçamento das setas em relação à logo */
+.swiper-button-prev {
+  left: 10px;      /* aumenta para afastar mais da logo */
+}
+
+.swiper-button-next {
+  right: 10px;     /* aumenta para afastar mais da logo */
+}
+
+@media (min-width: 600px) {
+  .swiper-button-prev {
+    left: 80px;    /* ajuste conforme o visual desejado */
+  }
+  .swiper-button-next {
+    right: 80px;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .main-logo {
+    width: 120px;
+    max-height: 60px;
+  }
+  .logo-section {
+    padding: 2rem 0.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo-section .swiper {
+    width: 90vw;
+    padding: 1.2rem 0;
+  }
+  .main-logo {
+    width: 120px;
+    max-height: 60px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 36px;
+    height: 36px;
+    left: -12px;
+    right: -12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-section .swiper {
+    max-width: 90vw;
+    padding: 1rem 0;
+  }
+
+  .main-logo {
+    width: 100px;
+    max-height: 60px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Adicionando gradientes nas laterais do swiper */
+.logo-section .swiper::before,
+.logo-section .swiper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.logo-section .swiper::before {
+  left: 0;
+  background: linear-gradient(to right, #5F7350 70%, transparent);
+}
+.logo-section .swiper::after {
+  right: 0;
+  background: linear-gradient(to left, #5F7350 70%, transparent);
+}
+
+.swiper-wrapper {
+  align-items: center; /* Garante centralização vertical dos slides */
+}
