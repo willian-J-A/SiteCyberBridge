@@ -59,7 +59,7 @@ export default function Carrocellogo() {
           marginBottom: '1rem',
           textAlign: 'center',
         }}>
-          Nossos Parceiros de Negocio
+          Parceiros de Negócio
         </h2>
         <Swiper
           modules={[Navigation, Autoplay]}
