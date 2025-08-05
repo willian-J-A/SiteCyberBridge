@@ -73,9 +73,9 @@ const Footer = () => {
           </a>
         </div>
 
-      <div className="footer__copy">
-        © {new Date().getFullYear()} Cyber Bridge. Todos os direitos reservados.
-      </div>
+  <div className="footer__copy" style={{ textAlign: 'center' }}>
+    © {new Date().getFullYear()} Cyber Bridge. Todos os direitos reservados.
+  </div>
     </footer>
   );
 };

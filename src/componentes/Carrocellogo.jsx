@@ -6,15 +6,30 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import '../styles/global.css';
 
+const links = {
+  'logo1': 'http://renovaindustria.com.br/',
+  'logo2': 'https://www.santacasasertaozinho.com.br/',
+  'logo3': 'http://semprecuidares.com.br/',
+  'logo5': 'https://www.gruporenove.srv.br/',
+  'logo6': 'https://baldocchi.com.br/',
+  'logo7': 'https://pentagonoeng.com.br/',
+  'logo8': 'https://repensaenergia.com/',
+};
+
 // Importa dinamicamente as imagens da pasta logos e ordena por nome
 const logos = Object.entries(
   import.meta.glob('../assets/logos/*.{png,jpg,jpeg,svg}', { eager: true })
 )
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([path, mod]) => ({
+ 
+.sort(([a], [b]) => a.localeCompare(b))
+.map(([path, mod]) => {
+  const fileName = path.split('/').pop().split('.')[0]; // ex: 'Logo1'
+  return {
     src: mod.default,
-    url: '#', // Substitua por links reais, se necessário
-  }));
+    url: links[fileName] || '#', // usa o link ou '#' se não definido
+  };
+});
+
 
 export default function Carrocellogo() {
   const canLoop = logos.length > 2; // Permite loop apenas se houver mais de 2 logos
@@ -28,24 +43,23 @@ export default function Carrocellogo() {
         <meta name="author" content="Sua Empresa" />
       </head>
       <div
-        className="logo-section"
-        style={{
-          background: '#5F7350', // Cor da faixa azul
-          height: '100%', // Ocupa 100% da altura do pai
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'relative', // Necessário para posicionar as setas
-        }}
-      >
+  className="logo-section"
+  style={{
+    background: '#5F7350',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  }}
+>
         <h2 style={{
           fontSize: '2rem',
           color: '#FFFFFF', // Change color to white
           marginBottom: '1rem',
           textAlign: 'center',
         }}>
-          Nossos Clientes Parceiros
+          Nossos Parceiros de Negocio
         </h2>
         <Swiper
           modules={[Navigation, Autoplay]}
