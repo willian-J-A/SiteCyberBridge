@@ -14,6 +14,7 @@ const links = {
   'logo6': 'https://baldocchi.com.br/',
   'logo7': 'https://pentagonoeng.com.br/',
   'logo8': 'https://repensaenergia.com/',
+  'logo9': 'https://riberval.com.br/',
 };
 
 // Importa dinamicamente as imagens da pasta logos e ordena por nome
